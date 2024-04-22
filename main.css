@@ -1,0 +1,25 @@
+/* main.css */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    counter-reset: rowNumber -1;
+}
+
+table, th, td {
+    border: 1px solid black;
+    padding: 4px;
+}
+
+th {
+    background-color: #ffbb00; /* optional: add background color for header row */
+}
+
+/* Add counter for table rows */
+tr {
+    counter-increment: rowNumber;
+}
+
+/* Style for the first column */
+td:first-child::before {
+    content: counter(rowNumber); /* Display the counter value */
+}
