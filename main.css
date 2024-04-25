@@ -19,6 +19,10 @@
     font-family: "Nanum Gothic", sans-serif;
 }
 
+h1 {
+    transform: skewX(-35deg);
+}
+
 h1, h2 {
     font-family: "Kanit", sans-serif;
 }
@@ -34,6 +38,18 @@ header img {
     margin-bottom: -1%;
 }
 
+.local {
+    background-color: var(--light-borange);
+    color:black;
+    margin-left:4%;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+.local li {
+    margin-left: -30%;
+}
+
 nav {
     color:white;
     background-color: var(--borange);
@@ -44,9 +60,10 @@ nav {
     margin-right: -3%;
     display:flex;
     flex-flow: row wrap;
-    justify-content: center;
     justify-content: left;
 }
+
+
 
 nav .slanted{
     border: 4px solid var(--bwhite);
@@ -56,7 +73,7 @@ nav .slanted{
     margin-right:10px;
 }
 
-nav a {
+nav .slanted a{
     font-family: "Kanit", sans-serif;
     font-size: large;
     color:white;
@@ -80,6 +97,7 @@ nav .slanted:hover{
 nav .slanted:hover a {
     color: var(--borange);
 }
+
 
 table {
     border-collapse: collapse;
