@@ -5,7 +5,7 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Beaver F1 Leauge</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='main.css') }}">
     <script src='main.js'></script>
     <!--
         <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
@@ -15,12 +15,16 @@
 <body>
     <header>
         <h1>Rules - BF1</h1>
-        <img src="./imgs/beaverf1-removebg-preview.png">
+        <img src="{{ url_for('static', filename='/images/beaverf1-removebg-preview.png') }}" alt="Beaver Logo">
+
     </header>
     <nav>
-        <div class="slanted"><a href="./index.html">Home</a></div>
-        <div class="slanted"><a href="./rules.html">Rules (WIP)</a></div>
-    </nav>
+        <div class="slanted"><a href="{{ url_for('index') }}">Home</a></div>
+        <div class="slanted"><a href="{{ url_for('score_blog') }}">Score Feed</a></div>
+        <div class="slanted"><a href="{{ url_for('my_team') }}">My Team</a></div>
+        <div class="slanted"><a href="{{ url_for('rss_feed')}}">News Feed (RSS)</a></div>
+        <div class="slanted"><a href="{{ url_for('rules') }}">Rules (WIP)</a></div>
+    </nav>   
     <main>
         <section>
             <br>
