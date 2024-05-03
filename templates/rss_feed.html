@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Beaver F1 League</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='main.css') }}">
+    <script src='main.js'></script>
+    <link rel='icon' type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
+</head>
+<body>
+    <header>
+        <h1>News Feed - BF1</h1>
+        <img src="{{ url_for('static', filename='images/beaverf1-removebg-preview.png') }}" alt="Beaver F1 League Logo">
+    </header>
+    <nav>
+        <div class="slanted"><a href="{{ url_for('index') }}">Home</a></div>
+        <div class="slanted"><a href="{{ url_for('score_blog') }}">Score Feed</a></div>
+        <div class="slanted"><a href="{{ url_for('my_team') }}">My Team</a></div>
+        <div class="slanted"><a href="{{ url_for('rss_feed')}}">News Feed (RSS)</a></div>
+        <div class="slanted"><a href="{{ url_for('rules') }}">Rules (WIP)</a></div>
+    </nav>   
+    <main>
+        <h2>RSS Feed</h2>
+        <p>This is a collect of RSS feed articles scraped from across the web.</p>
+        <em>Note these links will take you to Formula1.com. I am not liable for the content they contain.</em>
+        <div class="rss-feed">
+            <div class="rss-entries">
+                {% for entry in entries %}
+                <div class="rss-entry">
+                    <div class="rss-title">
+                        <a class="rss-link" href="{{ entry.link }}" target="_blank">{{ entry.title }}</a>
+                    </div>
+                    <div class="rss-published">{{ entry.description }}</div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+</body>
+</html>

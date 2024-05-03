@@ -23,6 +23,7 @@ h1 {
     transform: skewX(-35deg);
 }
 
+
 h1, h2 {
     font-family: "Kanit", sans-serif;
 }
@@ -126,4 +127,35 @@ tr {
 /* Style for the first column */
 td:first-child::before {
     content: counter(rowNumber); /* Display the counter value */
+}
+
+.blog-post {
+    background-color: var(--light-borange);
+    border-radius: 10px;
+    margin: 20px;
+    padding: 10px;
+}
+
+.blog-post a {
+    background-color: var(--bwhite);
+    padding: 5px;
+    border-radius: 2px;
+    color: black;
+}
+
+.rss-entry {
+    background-color: var(--light-borange);
+    border-radius: 10px;
+    margin: 20px;
+    padding: 10px;
+}
+
+.rss-title a {
+    color: var(--bwhite);
+    font-size: larger;
+    margin: 10px;
+}
+
+.team-link a{
+    color: black;
 }

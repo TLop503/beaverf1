@@ -5,7 +5,7 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Beaver F1 Leauge</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='main.css') }}">
     <script src='main.js'></script>
     <!--
         <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
@@ -15,12 +15,15 @@
 <body>
     <header>
         <h1>Beaver F1 League</h1>
-        <img src="./imgs/beaverf1-removebg-preview.png">
+        <img src="{{ url_for('static', filename='/images/beaverf1-removebg-preview.png') }}" alt="Beaver Logo">
     </header>
     <nav>
-        <div class="slanted"><a href="./index.html">Home</a></div>
-        <div class="slanted"><a href="./rules.html">Rules (WIP)</a></div>
-    </nav>
+        <div class="slanted"><a href="{{ url_for('index') }}">Home</a></div>
+        <div class="slanted"><a href="{{ url_for('score_blog') }}">Score Feed</a></div>
+        <div class="slanted"><a href="{{ url_for('my_team') }}">My Team</a></div>
+        <div class="slanted"><a href="{{ url_for('rss_feed')}}">News Feed (RSS)</a></div>
+        <div class="slanted"><a href="{{ url_for('rules') }}">Rules (WIP)</a></div>
+    </nav>       
     <main>
         <section>
             <p>Under construction currently, please pardon the mess.</p>
@@ -42,7 +45,7 @@
                 </tr>
                 <tr>
                     <td></td>
-                    <td>D.D.</td>
+                    <td><a class="team_link" href="{{ url_for('my_team') }}">D.D</a></td>
                     <td>Kim</td>
                     <td>RUS</td>
                     <td>LEC</td>
@@ -51,7 +54,7 @@
                 </tr>
                 <tr>
                     <td></td>
-                    <td>H.W.</td>
+                    <td><a class="team_link" href="{{ url_for('my_team') }}">H.W.</a></td>
                     <td>Daivon</td>
                     <td>SAI</td>
                     <td>TSU</td>
@@ -60,7 +63,7 @@
                 </tr>
                 <tr>
                     <td></td>
-                    <td>E.M.</td>
+                    <td><a class="team_link" href="{{ url_for('my_team') }}">EABMODEL</a></td>
                     <td>Maria</td>
                     <td>PER</td>
                     <td>ALB</td>
@@ -69,7 +72,7 @@
                 </tr>
                 <tr>
                     <td></td>
-                    <td>$.M.</td>
+                    <td><a class="team_link" href="{{ url_for('my_team') }}">$.M.</a></td>
                     <td>Troy</td>
                     <td>VER</td>
                     <td>PIA</td>
@@ -78,7 +81,7 @@
                 </tr>
                 <tr>
                     <td></td>
-                    <td>A44</td>
+                    <td><a class="team_link" href="{{ url_for('my_team') }}">AM44</a></td>
                     <td>Alan</td>
                     <td>OCO</td>
                     <td>HAM</td>
@@ -87,7 +90,7 @@
                 </tr>
                 <tr>
                     <td></td>
-                    <td>F.P.</td>
+                    <td><a class="team_link" href="{{ url_for('my_team') }}">F.P.</a></td>
                     <td>Josiah</td>
                     <td>NOR</td>
                     <td>RIC</td>
@@ -96,7 +99,7 @@
                 </tr>
                 <tr>
                     <td></td>
-                    <td>B.B.R.</td>
+                    <td><a class="team_link" href="{{ url_for('my_team') }}">B.B.R.</a></td>
                     <td>Karissa</td>
                     <td>ALO</td>
                     <td>GAS</td>
@@ -105,7 +108,7 @@
                 </tr>
                 <tr>
                     <td></td>
-                    <td>La.T.</td>
+                    <td><a class="team_link" href="{{ url_for('my_team') }}">La T.</a></td>
                     <td>Petra</td>
                     <td>STR</td>
                     <td>HUL</td>

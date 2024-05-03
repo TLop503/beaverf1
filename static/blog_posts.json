@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "title": "RECAP - EXAMPLE",
+        "date": 20240428,
+        "summary": "This is an example summary, and is the 2nd most recent post in the DB.",
+        "img":"./images/beaverf1.png",
+        "body":"This is where there can be a description of the race. For example, driver A passed driver B on lap 29 to take the lead. The race was won by Driver C, scoring 25 points in the championship. For the fantasy league, team A moved up 2 places in the standings while team B fell to last after a DNF by their primary driver. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    },
+    {
+        "id": 2,
+        "title": "RECAP - Chinese GP",
+        "date": 20240421,
+        "summary": "2 Safety cars and 2 DNFs sees an exciting race weekend for the first Chinese Grand Prix since 2019.",
+        "img":"/images/rb_china.bmp",
+        "body":"This is where there can be a description of the race. For example, driver A passed driver B on lap 29 to take the lead. The race was won by Driver C, scoring 25 points in the championship. For the fantasy league, team A moved up 2 places in the standings while team B fell to last after a DNF by their primary driver. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    }    
+]
