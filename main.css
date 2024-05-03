@@ -41,13 +41,17 @@ header img {
 .local {
     background-color: var(--light-borange);
     color:black;
-    margin-left:4%;
+    margin-left:1%;
     border-radius: 8px;
     display: inline-block;
 }
 
 .local li {
-    margin-left: -30%;
+    justify-content: center;
+}
+
+.local li a {
+    color: black;
 }
 
 nav {
