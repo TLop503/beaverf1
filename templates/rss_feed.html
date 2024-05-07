@@ -19,12 +19,14 @@
         <div class="slanted"><a href="{{ url_for('score_blog') }}">Score Feed</a></div>
         <div class="slanted"><a href="{{ url_for('my_team') }}">My Team</a></div>
         <div class="slanted"><a href="{{ url_for('rss_feed')}}">News Feed (RSS)</a></div>
-        <div class="slanted"><a href="{{ url_for('rules') }}">Rules (WIP)</a></div>
+        <div class="slanted"><a href="{{ url_for('rules') }}">Rules</a></div>
+        <div class="slanted"><a href="{{ url_for('export') }}">Data Export</a></div>
+
     </nav>   
     <main>
         <h2>RSS Feed</h2>
-        <p>This is a collect of RSS feed articles scraped from across the web.</p>
-        <em>Note these links will take you to Formula1.com. I am not liable for the content they contain.</em>
+        <p>This is a collect of RSS feed articles scraped from across the web. Please note that the articles may take a few seconds to load.</p>
+        <em>Note these links will take you to Formula1.com. I am not liable for the content they contain. Exercise caution when accessing links you are unfamiliar with.</em>
         <div class="rss-feed">
             <div class="rss-entries">
                 {% for entry in entries %}

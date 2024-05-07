@@ -42,6 +42,10 @@ def my_team():
     # Your rules page logic here
     return render_template('team.html')
 
+@app.route('/export')
+def export():
+    return render_template('export_data.html')
+
 @app.route('/rss_feed')
 def rss_feed():
     # URL of the RSS feed you want to fetch

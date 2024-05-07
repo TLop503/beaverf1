@@ -19,10 +19,11 @@
         <div class="slanted"><a href="{{ url_for('score_blog') }}">Score Feed</a></div>
         <div class="slanted"><a href="{{ url_for('my_team') }}">My Team</a></div>
         <div class="slanted"><a href="{{ url_for('rss_feed')}}">News Feed (RSS)</a></div>
-        <div class="slanted"><a href="{{ url_for('rules') }}">Rules (WIP)</a></div>
+        <div class="slanted"><a href="{{ url_for('rules') }}">Rules</a></div>
     </nav>   
     <main>
         <div class="post-detail">
+            <h3><a href="{{ url_for('score_blog') }}">&lt;-- Back to posts </a></h3>
             <h2>{{ post.title }}</h2>
             <h3>{{ post.summary }}</h3>
             <p>{{ post.body }}</p>
