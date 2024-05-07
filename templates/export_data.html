@@ -24,10 +24,11 @@
         <div class="slanted"><a href="{{ url_for('rss_feed')}}">News Feed (RSS)</a></div>
         <div class="slanted"><a href="{{ url_for('rules') }}">Rules</a></div>
         <div class="slanted"><a href="{{ url_for('export') }}">Data Export</a></div>
-
     </nav>       
     <main>
-        <p>This page is under construction, and will have more information in the future.</p>
+        <h2>Want to tinker around with the data on your own?</h1>
+        <p>Have ideas for graphs or anaylses? Click below to access the raw data for the game, and have fun exploring the data! Don't worry, this won't impact our server, so you can mess around without the risk of breaking anything. You can re-download the data if you need to start fresh. The link even works with `wget`, if you need to access the data from a CLI.</p>
+        <a href="../static/data.csv">data.csv</a>
     </main>
 </body>
 </html>
