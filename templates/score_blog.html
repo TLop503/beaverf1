@@ -21,8 +21,14 @@
         <div class="slanted"><a href="{{ url_for('rss_feed')}}">News Feed (RSS)</a></div>
         <div class="slanted"><a href="{{ url_for('rules') }}">Rules</a></div>
         <div class="slanted"><a href="{{ url_for('export') }}">Data Export</a></div>
-
-    </nav>    
+        
+        {% if session.logged_in %}
+            <div class="slanted"><a href="{{ url_for('logout') }}">Logout</a></div>
+        {% else %}
+            <div class="slanted"><a href="{{ url_for('login') }}">Login</a></div>
+            <div class="slanted"><a href="{{ url_for('register') }}">Register</a></div>
+        {% endif %}
+    </nav>   
     <main class="score-blog">
         <h2>Score Blog</h2>
         <p>This is a blog with a recap for how scoring happened after each race. Each post has a summary of important events tied specifically to that race.</p>

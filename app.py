@@ -1,8 +1,11 @@
 import json
 import feedparser
-from flask import Flask, render_template, jsonify
+import requests
+
+from flask import Flask, render_template, jsonify, request, session, redirect, url_for
 
 app = Flask(__name__)
+app.secret_key = 'temporary_key'
 
 def load_blog_posts():
     with open('static/blog_posts.json', 'r') as f:
@@ -67,6 +70,71 @@ def rss_feed():
 
     # Render a template with the RSS feed data
     return render_template('rss_feed.html', entries=entries)
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        user = request.form.get('user')
+        password = request.form.get('pass')
+        
+        # Validate form data
+        if not user or not password:
+            return jsonify({'Error': 'Please provide both username and password'}), 400
+        
+        # Make POST request to login endpoint
+        response = requests.post('http://localhost:5002/login', json={'user': user, 'pass': password})
+        if response.status_code == 200:
+            session['logged_in'] = True
+            session['user_name'] = user  # Store user's name
+        return render_template('login_results.html')
+        
+        # if response.status_code == 200:
+        #     session['logged_in'] = True
+        #     session['user_name'] = user  # Store user's name
+        #     return jsonify({'Message': 'Login successful'}), 200
+        
+        # elif response.status_code == 404:
+        #     return jsonify({'Error': 'User does not exist'}), 404
+        # elif response.status_code == 401:
+        #     return jsonify({'Error': 'Incorrect password'}), 401
+        # else:
+        #     return jsonify({'Error': 'Failed to login'}), 500
+    
+    return render_template('login.html')
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        user = request.form.get('user')
+        password = request.form.get('pass')
+        
+        # Validate form data
+        if not user or not password:
+            return jsonify({'Error': 'Please provide both username and password'}), 400
+        
+        # Make POST request to login endpoint
+        response = requests.post('http://localhost:5001/register', json={'user': user, 'pass': password})
+        if response.status_code == 201:
+            return render_template('reg_success.html')
+        elif response.status_code == 409:
+            return jsonify({'Error': 'User already exists. Please press the back arrow and try again.'}), 404
+        elif response.status_code == 400:
+            return jsonify({'Error': 'Missing info. Please press the back arrow and try again.'}), 400
+        else:
+            return jsonify({'Error': 'Failed to register, please press the back arrow and try again.', 'code' : response.status_code}), 500
+    
+    return render_template('register.html')
+
+
+@app.route('/logout')
+def logout():
+    # Clear session variables related to authentication
+    session.pop('logged_in', None)
+    session.pop('user_name', None)
+    
+    # Redirect the user to the home page or any other desired location
+    return redirect(url_for('index'))
+
 
 # Run the application
 if __name__ == '__main__':

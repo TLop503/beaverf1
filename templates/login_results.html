@@ -28,15 +28,15 @@
             <div class="slanted"><a href="{{ url_for('login') }}">Login</a></div>
             <div class="slanted"><a href="{{ url_for('register') }}">Register</a></div>
         {% endif %}
-    </nav>  
+    </nav>
     <main>
-        <div class="post-detail">
-            <h3><a href="{{ url_for('score_blog') }}">&lt;-- Back to posts </a></h3>
-            <h2>{{ post.title }}</h2>
-            <h3>{{ post.summary }}</h3>
-            <p>{{ post.body }}</p>
-        <!-- Additional details or formatting can be added here -->
-        </div>
+        {% if session.logged_in == True %}
+        <h2>Login Successful!</h1>
+        <p>You are logged in.</p>
+        {% else %}
+        <h1>Login Error</h1>
+        <p>Something went wrong. Doublecheck your password please</p>
+        {% endif %}
     </main>
 </body>
 </html>

@@ -30,13 +30,14 @@
         {% endif %}
     </nav>  
     <main>
-        <div class="post-detail">
-            <h3><a href="{{ url_for('score_blog') }}">&lt;-- Back to posts </a></h3>
-            <h2>{{ post.title }}</h2>
-            <h3>{{ post.summary }}</h3>
-            <p>{{ post.body }}</p>
-        <!-- Additional details or formatting can be added here -->
-        </div>
+        <h2>User Login</h2>
+        <form id="loginForm" action="/login" method="POST">
+            <label for="loginUsername">Username:</label>
+            <input type="text" id="loginUsername" name="user" required><br><br>
+            <label for="loginPassword">Password:</label>
+            <input type="password" id="loginPassword" name="pass" required><br><br>
+            <button type="submit">Login</button>
+        </form>
     </main>
 </body>
 </html>

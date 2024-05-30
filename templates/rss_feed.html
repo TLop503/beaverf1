@@ -21,8 +21,14 @@
         <div class="slanted"><a href="{{ url_for('rss_feed')}}">News Feed (RSS)</a></div>
         <div class="slanted"><a href="{{ url_for('rules') }}">Rules</a></div>
         <div class="slanted"><a href="{{ url_for('export') }}">Data Export</a></div>
-
-    </nav>   
+        
+        {% if session.logged_in %}
+            <div class="slanted"><a href="{{ url_for('logout') }}">Logout</a></div>
+        {% else %}
+            <div class="slanted"><a href="{{ url_for('login') }}">Login</a></div>
+            <div class="slanted"><a href="{{ url_for('register') }}">Register</a></div>
+        {% endif %}
+    </nav>  
     <main>
         <h2>RSS Feed</h2>
         <p>This is a collect of RSS feed articles scraped from across the web. Please note that the articles may take a few seconds to load.</p>
