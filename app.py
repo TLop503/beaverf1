@@ -1,6 +1,8 @@
 import json
 import feedparser
-from flask import Flask, render_template, jsonify
+import requests
+
+from flask import Flask, render_template, jsonify, request
 
 app = Flask(__name__)
 
@@ -67,6 +69,53 @@ def rss_feed():
 
     # Render a template with the RSS feed data
     return render_template('rss_feed.html', entries=entries)
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        user = request.form.get('user')
+        password = request.form.get('pass')
+        
+        # Validate form data
+        if not user or not password:
+            return jsonify({'Error': 'Please provide both username and password'}), 400
+        
+        # Make POST request to login endpoint
+        response = requests.post('http://localhost:5002/login', json={'user': user, 'pass': password})
+        if response.status_code == 200:
+            return jsonify({'Message': 'Login successful'}), 200
+        elif response.status_code == 404:
+            return jsonify({'Error': 'User does not exist'}), 404
+        elif response.status_code == 401:
+            return jsonify({'Error': 'Incorrect password'}), 401
+        else:
+            return jsonify({'Error': 'Failed to login'}), 500
+    
+    return render_template('login.html')
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        user = request.form.get('user')
+        password = request.form.get('pass')
+        
+        # Validate form data
+        if not user or not password:
+            return jsonify({'Error': 'Please provide both username and password'}), 400
+        
+        # Make POST request to login endpoint
+        response = requests.post('http://localhost:5001/register', json={'user': user, 'pass': password})
+        if response.status_code == 201:
+            return jsonify({'Message': 'Registration successful'}), 200
+        elif response.status_code == 409:
+            return jsonify({'Error': 'User already exists'}), 404
+        elif response.status_code == 400:
+            return jsonify({'Error': 'Missing info'}), 400
+        else:
+            return jsonify({'Error': 'Failed to register with status code', 'code' : response.status_code}), 500
+    
+    return render_template('register.html')
+
 
 # Run the application
 if __name__ == '__main__':
