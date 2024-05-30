@@ -24,9 +24,19 @@
         <div class="slanted"><a href="{{ url_for('rss_feed')}}">News Feed (RSS)</a></div>
         <div class="slanted"><a href="{{ url_for('rules') }}">Rules</a></div>
         <div class="slanted"><a href="{{ url_for('export') }}">Data Export</a></div>
-
-    </nav>       
+        
+        {% if session.logged_in %}
+            <div class="slanted"><a href="{{ url_for('logout') }}">Logout</a></div>
+        {% else %}
+            <div class="slanted"><a href="{{ url_for('login') }}">Login</a></div>
+            <div class="slanted"><a href="{{ url_for('register') }}">Register</a></div>
+        {% endif %}
+    </nav>
+         
     <main>
+        <section>
+            <p>Wecome, {{ session.get('user_name', 'Guest') }}</p>
+        </section>
         <section>
             <p>Welcome to the Beaver Formula 1 Fantasy Sports Leauge Homepage! The current standings and scores between teams are listed below. To view specific stats about your team, click the "my team" menu above, or pick their name from the list below. Race and score summaries for each week can be found in the "score feed" menu. If you missed a race, this is a great way to catch up! News from other sites can be found the the "news feed" menu, and the rules can be viewed on the rules page. If you'd like to explore the larger dataset, check out the "Data Export" page.</p>
         </section>

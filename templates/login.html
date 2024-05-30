@@ -20,7 +20,15 @@
         <div class="slanted"><a href="{{ url_for('my_team') }}">My Team</a></div>
         <div class="slanted"><a href="{{ url_for('rss_feed')}}">News Feed (RSS)</a></div>
         <div class="slanted"><a href="{{ url_for('rules') }}">Rules</a></div>
-    </nav>   
+        <div class="slanted"><a href="{{ url_for('export') }}">Data Export</a></div>
+        
+        {% if session.logged_in %}
+            <div class="slanted"><a href="{{ url_for('logout') }}">Logout</a></div>
+        {% else %}
+            <div class="slanted"><a href="{{ url_for('login') }}">Login</a></div>
+            <div class="slanted"><a href="{{ url_for('register') }}">Register</a></div>
+        {% endif %}
+    </nav>  
     <main>
         <h2>User Login</h2>
         <form id="loginForm" action="/login" method="POST">
